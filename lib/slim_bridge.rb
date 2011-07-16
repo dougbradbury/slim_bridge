@@ -1,5 +1,5 @@
-module SerialSlim
-  def read_message(com)
+module SlimBridge
+  def self.read_message(com)
     length = com.read(6)
     return nil unless length
     colon = com.read(1)
@@ -7,7 +7,7 @@ module SerialSlim
     "#{length}:#{command}"
   end
 
-  def serve_serial_slim(fitnesse, remote_slim)
+  def self.serve(fitnesse, remote_slim)
     f = File.open("slimlog.txt", "a")
     puts "Getting remote Slim Version"
     version = remote_slim.gets
