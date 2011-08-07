@@ -1,5 +1,6 @@
 require 'slim_bridge_server'
+require 'socket'
 
-device, baud_rate, port = *ARGV
-run_server(port, TcpSocket.new(remote_host, remote_port))
+remote_host, remote_port, port = *ARGV
+SlimBridgeServer::run(port, TCPSocket.open(remote_host, remote_port))
 
