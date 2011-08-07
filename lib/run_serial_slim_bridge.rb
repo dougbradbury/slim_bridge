@@ -8,4 +8,4 @@ end
 
 
   device, baud_rate, port = *ARGV
-  SlimBridgeServer::run(port, SerialPort.new(device, baud_rate))
+  SlimBridgeServer::run(port, SerialPort.new(device, baud_rate.to_i))
